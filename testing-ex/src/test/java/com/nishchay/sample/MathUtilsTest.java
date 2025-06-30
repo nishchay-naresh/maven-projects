@@ -1,5 +1,6 @@
 package com.nishchay.sample;
 
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,6 +11,11 @@ public class MathUtilsTest {
 
     @Before
     public void setup() {
+        mathUtils = new MathUtils();
+    }
+
+    @After
+    public void cleanup() {
         mathUtils = new MathUtils();
     }
 
