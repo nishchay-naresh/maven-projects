@@ -29,9 +29,8 @@ class CacheControllerTest {
   private final String CACHE_MANAGER = "mockCacheManager";
   private final String CACHE_ALIAS = "mockCache";
   @Mock
-  private CacheService<String, String> cacheService;
+  private CacheService cacheService;
   @InjectMocks
-  @SuppressWarnings("rawtypes")
   private CacheController cacheController;
   private MockMvc mockMvc;
 
@@ -42,9 +41,9 @@ class CacheControllerTest {
   }
 
   private void setupMock() {
-    Mockito.when(cacheService.getEntry(CACHE_MANAGER, CACHE_ALIAS, CACHE_KEY)).thenReturn(CACHE_VALUE);
-    Mockito.when(cacheService.addEntry(CACHE_MANAGER, CACHE_ALIAS, CACHE_KEY, CACHE_VALUE)).thenReturn(true);
-    Mockito.when(cacheService.deleteEntry(CACHE_MANAGER, CACHE_ALIAS, CACHE_KEY)).thenReturn(CACHE_VALUE);
+    Mockito.when(cacheService.getEntries(CACHE_MANAGER, CACHE_ALIAS, CACHE_KEY)).thenReturn(CACHE_VALUE);
+    Mockito.when(cacheService.updateEntries(CACHE_MANAGER, CACHE_ALIAS, CACHE_KEY, CACHE_VALUE)).thenReturn(true);
+    Mockito.when(cacheService.deleteEntries(CACHE_MANAGER, CACHE_ALIAS, CACHE_KEY)).thenReturn(CACHE_VALUE);
   }
 
   @Test
